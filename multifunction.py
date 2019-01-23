@@ -1,4 +1,3 @@
-import pygame
 from sense_hat import SenseHat
 import time
 
@@ -9,7 +8,8 @@ while True:
     print("1.Temperature")
     print("2.Humidity")
     print("3.Barometric Pressure")
-    option = input("Please choose an option: ")
+    
+    option = int(input("Please choose an option: "))
 
         
 
@@ -32,3 +32,9 @@ while True:
         print("Pressure: %s Millibars" % pressure)
         pressure = str(pressure)
         sense.show_message(pressure,text_colour=[255, 0, 0])
+        
+        
+    if option == 4: 
+      while True:
+        gyro_only = sense.get_gyroscope()
+        print("p: {pitch}, r: {roll}, y: {yaw}".format(**gyro_only))
